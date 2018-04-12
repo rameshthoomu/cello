@@ -6,13 +6,6 @@
     - set_fact:
         starttime: "{{ ansible_date_time }}"
 
-- name: Install boto3
-  hosts: cloud
-  connection: local
-  tasks:
-    - pip:
-        name: boto3 
-
 - name: Run the plays
   include: "roles/cloud_{{ cloud_type | default('os') }}/plays.yml"
 
